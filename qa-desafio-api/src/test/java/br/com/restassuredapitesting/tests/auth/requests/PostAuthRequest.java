@@ -15,7 +15,7 @@ public class PostAuthRequest {
         return given()
                 .header("Content-Type", "application/json")
                 .when()
-                .body(payload)
+                .body(payload.toString())
                 .post("https://treinamento-api.herokuapp.com/auth");
     }
 

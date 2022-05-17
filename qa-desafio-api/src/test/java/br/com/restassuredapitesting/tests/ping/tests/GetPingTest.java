@@ -18,6 +18,6 @@ public class GetPingTest {
         getPingRequest.pingReturnApi()
                 .then()
                 .statusCode(201)
-                .time(lessThan(2L), TimeUnit.SECONDS);
+                .time(lessThan(4L), TimeUnit.SECONDS);
     }
 }

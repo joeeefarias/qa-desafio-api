@@ -9,6 +9,6 @@ public class GetBookingRequest {
     public Response bookinkReturnIds(){
         return  given()
                 .when()
-                .get("https://treinamento-api.herokuapp.com/booking");
+                .get("booking");
     }
 }

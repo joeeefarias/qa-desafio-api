@@ -1,22 +1,20 @@
 package br.com.restassuredapitesting.tests.auth.requests;
 
+import br.com.restassuredapitesting.tests.auth.requests.payloads.AuthPayloads;
 import io.restassured.response.Response;
-import org.json.JSONObject;
 import static io.restassured.RestAssured.given;
 
 public class PostAuthRequest {
 
-    public Response tokenReturn(){
-        JSONObject payload = new JSONObject();
-        payload.put("username", "admin");
-        payload.put("password", "password123");
+    AuthPayloads authPayloads = new AuthPayloads();
 
+    public Response tokenReturn(){
 
         return given()
                 .header("Content-Type", "application/json")
                 .when()
-                .body(payload.toString())
-                .post("https://treinamento-api.herokuapp.com/auth");
+                .body(authPayloads.jsonAuthLogin().toString())
+                .post("auth");
     }
 
     public String getToken(){

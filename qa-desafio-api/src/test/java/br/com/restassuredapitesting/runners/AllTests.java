@@ -1,7 +1,6 @@
 package br.com.restassuredapitesting.runners;
 
 import br.com.restassuredapitesting.tests.auth.tests.PostAuthTest;
-import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
 import br.com.restassuredapitesting.tests.booking.tests.GetBookingTest;
 import br.com.restassuredapitesting.tests.booking.tests.PutbookingTest;
 import br.com.restassuredapitesting.tests.ping.tests.GetPingTest;

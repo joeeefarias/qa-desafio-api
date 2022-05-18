@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "bookingid",
+    "booking"
+  ],
+  "properties": {
+    "bookingid": {
+      "type": "integer",
+      "default": 0,
+      "title": "The bookingid Schema",
+      "examples": [
+        1
+      ]
+    },
+    "booking": {
+      "type": "object",
+      "default": {},
+      "title": "The booking Schema",
+      "required": [
+        "firstname",
+        "lastname",
+        "totalprice",
+        "depositpaid",
+        "bookingdates",
+        "additionalneeds"
+      ],
+      "properties": {
+        "firstname": {
+          "type": "string",
+          "default": "",
+          "title": "The firstname Schema",
+          "examples": [
+            "Jim"
+          ]
+        },
+        "lastname": {
+          "type": "string",
+          "default": "",
+          "title": "The lastname Schema",
+          "examples": [
+            "Brown"
+          ]
+        },
+        "totalprice": {
+          "type": "integer",
+          "default": 0,
+          "title": "The totalprice Schema",
+          "examples": [
+            111
+          ]
+        },
+        "depositpaid": {
+          "type": "boolean",
+          "default": false,
+          "title": "The depositpaid Schema",
+          "examples": [
+            true
+          ]
+        },
+        "bookingdates": {
+          "type": "object",
+          "default": {},
+          "title": "The bookingdates Schema",
+          "required": [
+            "checkin",
+            "checkout"
+          ],
+          "properties": {
+            "checkin": {
+              "type": "string",
+              "default": "",
+              "title": "The checkin Schema",
+              "examples": [
+                "2018-01-01"
+              ]
+            },
+            "checkout": {
+              "type": "string",
+              "default": "",
+              "title": "The checkout Schema",
+              "examples": [
+                "2019-01-01"
+              ]
+            }
+          },
+          "examples": [{
+            "checkin": "2018-01-01",
+            "checkout": "2019-01-01"
+          }]
+        },
+        "additionalneeds": {
+          "type": "string",
+          "default": "",
+          "title": "The additionalneeds Schema",
+          "examples": [
+            "Breakfast"
+          ]
+        }
+      }
+    }
+  }
+}

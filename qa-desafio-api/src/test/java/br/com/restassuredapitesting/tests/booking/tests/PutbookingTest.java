@@ -23,7 +23,7 @@ public class PutbookingTest extends BaseTest {
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Alterar uma reserva utilizando um token")
-    @Category(AllTests.class)
+    @Category({AllTests.class})
     public void validarAlteracaoDeUmaReservaUtilizandoToken(){
 
         int primeiroId = getBookingRequest.bookinkReturnIds()

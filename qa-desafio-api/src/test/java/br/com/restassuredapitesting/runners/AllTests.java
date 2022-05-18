@@ -3,6 +3,7 @@ package br.com.restassuredapitesting.runners;
 import br.com.restassuredapitesting.tests.auth.tests.PostAuthTest;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
 import br.com.restassuredapitesting.tests.booking.tests.GetBookingTest;
+import br.com.restassuredapitesting.tests.booking.tests.PutbookingTest;
 import br.com.restassuredapitesting.tests.ping.tests.GetPingTest;
 import org.junit.experimental.categories.Categories;
 import org.junit.runner.RunWith;
@@ -13,7 +14,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         GetPingTest.class,
         GetBookingTest.class,
-        PostAuthTest.class
+        PostAuthTest.class,
+        PutbookingTest.class
 })
 public class AllTests {
 }

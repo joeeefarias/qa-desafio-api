@@ -5,6 +5,7 @@ import br.com.restassuredapitesting.suites.AcceptanceTests;
 import br.com.restassuredapitesting.suites.AllTests;
 import br.com.restassuredapitesting.suites.ContractTests;
 import br.com.restassuredapitesting.tests.booking.requests.PostBookingRequest;
+import br.com.restassuredapitesting.tests.booking.requests.payloads.BookingPayloads;
 import br.com.restassuredapitesting.utils.Utils;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -29,7 +30,7 @@ public class PostBookingTest extends BaseTest {
     @Category({AcceptanceTests.class,AllTests.class})
     public void validaCriaçãoDeUmaReserva(){
 
-        postBookingRequest.createBooking()
+        postBookingRequest.createBooking(BookingPayloads.validPayloadBooking())
                 .then()
                 .statusCode(200)
                 .body("size()", greaterThan(0));
@@ -40,7 +41,7 @@ public class PostBookingTest extends BaseTest {
     @DisplayName("Garantir o Schema de retorno da criação de reservas")
     @Category({AllTests.class, ContractTests.class})
     public void validaSchemaCriacaoDeReserva(){
-        postBookingRequest.createBooking()
+        postBookingRequest.createBooking(BookingPayloads.validPayloadBooking())
                 .then()
                 .statusCode(200)
                 .body(matchesJsonSchema(new File(Utils.getSchemBasePath("booking",

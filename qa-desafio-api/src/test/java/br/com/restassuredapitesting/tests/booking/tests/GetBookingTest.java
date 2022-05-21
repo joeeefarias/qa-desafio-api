@@ -4,6 +4,8 @@ import br.com.restassuredapitesting.base.BaseTest;
 import br.com.restassuredapitesting.suites.AllTests;
 import br.com.restassuredapitesting.suites.ContractTests;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
+import br.com.restassuredapitesting.tests.booking.requests.PostBookingRequest;
+import br.com.restassuredapitesting.tests.booking.requests.payloads.BookingPayloads;
 import br.com.restassuredapitesting.utils.Utils;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -21,6 +23,7 @@ import static org.hamcrest.Matchers.greaterThan;
 public class GetBookingTest extends BaseTest {
 
     GetBookingRequest getBookingRequest = new GetBookingRequest();
+    PostBookingRequest postBookingRequest = new PostBookingRequest();
 
     @Test
     @Severity(SeverityLevel.BLOCKER)
@@ -28,10 +31,28 @@ public class GetBookingTest extends BaseTest {
     @Category({AllTests.class})
     public void validaListagemDeIdDasReservas(){
 
-        getBookingRequest.bookinkReturnIds()
+        getBookingRequest.bookingReturnIds()
                 .then()
                 .statusCode(200)
                 .body("size()", greaterThan(0));
+    }
+
+    @Test
+    public void validaFiltroReservaPrimeiroNome(){
+        String nome = "Stuart";
+        String sobrenome = "Constantine";
+        String checkin = "2022-05-01";
+        String checkout = "2022-05-01";
+
+
+        postBookingRequest.createBooking(BookingPayloads.openFieldsPayload(nome,"", "","")).then().statusCode(200);
+
+        getBookingRequest.bookingFilter("firstname", nome, "", "", "", "")
+                .then()
+                .statusCode(200)
+                .log().all()
+                .body("size()", greaterThan(0));
+
     }
 
     @Test
@@ -39,7 +60,7 @@ public class GetBookingTest extends BaseTest {
     @DisplayName("Garantir o Schema de retorno da listagem das reservas")
     @Category({AllTests.class, ContractTests.class})
     public void validaSchemaListagemDeReserva(){
-        getBookingRequest.bookinkReturnIds()
+        getBookingRequest.bookingReturnIds()
                 .then()
                 .statusCode(200)
                 .body(matchesJsonSchema(new File(Utils.getSchemBasePath("booking",

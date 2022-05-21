@@ -32,11 +32,7 @@
       "properties": {
         "firstname": {
           "type": "string",
-          "default": "",
-          "title": "The firstname Schema",
-          "examples": [
-            "Jim"
-          ]
+          "default": ""
         },
         "lastname": {
           "type": "string",
@@ -56,11 +52,7 @@
         },
         "depositpaid": {
           "type": "boolean",
-          "default": false,
-          "title": "The depositpaid Schema",
-          "examples": [
-            true
-          ]
+          "default": false
         },
         "bookingdates": {
           "type": "object",
@@ -73,33 +65,17 @@
           "properties": {
             "checkin": {
               "type": "string",
-              "default": "",
-              "title": "The checkin Schema",
-              "examples": [
-                "2018-01-01"
-              ]
+              "default": ""
             },
             "checkout": {
               "type": "string",
-              "default": "",
-              "title": "The checkout Schema",
-              "examples": [
-                "2019-01-01"
-              ]
+              "default": ""
             }
           },
-          "examples": [{
-            "checkin": "2018-01-01",
-            "checkout": "2019-01-01"
-          }]
-        },
-        "additionalneeds": {
-          "type": "string",
-          "default": "",
-          "title": "The additionalneeds Schema",
-          "examples": [
-            "Breakfast"
-          ]
+          "additionalneeds": {
+            "type": "string",
+            "default": ""
+          }
         }
       }
     }

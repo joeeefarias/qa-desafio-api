@@ -26,7 +26,7 @@ public class PutbookingTest extends BaseTest {
     @Category({AllTests.class})
     public void validarAlteracaoDeUmaReservaUtilizandoToken(){
 
-        int primeiroId = getBookingRequest.bookinkReturnIds()
+        int primeiroId = getBookingRequest.bookingReturnIds()
                 .then()
                 .statusCode(200)
                 .extract()

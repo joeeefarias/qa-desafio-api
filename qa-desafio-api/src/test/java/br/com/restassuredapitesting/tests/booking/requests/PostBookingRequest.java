@@ -21,4 +21,5 @@ public class PostBookingRequest {
                 .log().all()
                 .post("booking");
     }
+
 }

@@ -30,7 +30,8 @@ public class PostBookingTest extends BaseTest {
     @Category({AcceptanceTests.class,AllTests.class})
     public void validaCriaçãoDeUmaReserva(){
 
-        postBookingRequest.createBooking(BookingPayloads.validPayloadBooking())
+        postBookingRequest.createBooking(BookingPayloads.openFieldsValidPayload("", "",
+                        "", ""))
                 .then()
                 .statusCode(200)
                 .body("size()", greaterThan(0));
@@ -41,7 +42,8 @@ public class PostBookingTest extends BaseTest {
     @DisplayName("Garantir o Schema de retorno da criação de reservas")
     @Category({AllTests.class, ContractTests.class})
     public void validaSchemaCriacaoDeReserva(){
-        postBookingRequest.createBooking(BookingPayloads.validPayloadBooking())
+        postBookingRequest.createBooking(BookingPayloads.openFieldsValidPayload("", "",
+                        "", ""))
                 .then()
                 .statusCode(200)
                 .body(matchesJsonSchema(new File(Utils.getSchemBasePath("booking",

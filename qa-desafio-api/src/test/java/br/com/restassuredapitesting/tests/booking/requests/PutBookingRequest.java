@@ -10,14 +10,15 @@ public class PutBookingRequest {
    BookingPayloads bookingPayloads = new BookingPayloads();
 
    @Step("Atualiza uma reserva especifica com o parâmetro token")
-    public Response udateBookingWithToken(int id, String token){
+    public Response updateBookingWithToken(int id, String token){
 
         return given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .header("Cookie", token)
                 .when()
-                .body(bookingPayloads.validPayloadBooking().toString())
+                .body(bookingPayloads.openFieldsValidPayload("", "",
+                        "", "").toString())
                 .put("booking/" + id);
     }
 }

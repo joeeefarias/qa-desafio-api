@@ -29,7 +29,6 @@ public class GetBookingRequest {
         return given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
-                .log().all()
                 .when()
                 .get("booking/" + id);
     }
